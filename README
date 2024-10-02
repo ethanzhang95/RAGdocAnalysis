@@ -1,0 +1,26 @@
+This project implements a few document embedding strategies using LLamaIndexs pipeline tools,
+and enable the advanced RAG (Retrieval Augmented Generative) to analyze the vectored documents 
+using LLM.
+
+rag-ingest.py is the data embedding/ingestion module
+query.py is the retrieval and LLM query for answers
+summary.py is a plain LLM query (without the RAG) to compare result 
+
+more enhancement can be done for better accuracy and avoid hallucinations, will be adding evaluation metrics
+for testings 
+
+
+
+Setup is needed to install llamaIndex and additional extensions,
+The code uses openAI as LLM, so this is needed "export OPENAI_API_KEY=********" 
+
+==============================================================
+python3 -m venv venv
+source venv/bin/activate 
+pip3 install llama-index
+pip3 install llama-index-llms-openai
+pip3 install llama-index-extractors-marvin
+!pip3 install marvin
+pip3 install llama-index-extractors-entity
+pip3 install llama-index-postprocessor-cohere-rerank
+pip3 install llama-index-packs-subdoc-summary
